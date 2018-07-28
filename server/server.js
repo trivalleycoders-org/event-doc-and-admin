@@ -5,6 +5,7 @@ import morgan from 'morgan'
 import {greenf, redf, yellow} from '../logger'
 // import cities from '../routes/cities'
 import citiesLookup from '../routes/citiesLookup'
+import distinctCities from '../routes/distinceCities'
 import convertZipToString from '../routes/convertZipToString'
 require('dotenv').config()
 
@@ -21,6 +22,7 @@ app.use(morgan('dev'))
 // app.use('/cities', cities)
 app.use('/cities-lookup', citiesLookup)
 app.use('/convert-zip', convertZipToString)
+app.use('/distinct-cities', distinctCities)
 
 app.get('/', (req, res) => {
   redf('Invalid endpoint!')
