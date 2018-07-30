@@ -7,6 +7,7 @@ import {greenf, redf, yellow} from '../logger'
 import citiesLookup from '../routes/citiesLookup'
 import distinctCities from '../routes/distinceCities'
 import convertZipToString from '../routes/convertZipToString'
+import updateCityData from '../routes/update-city-data'
 require('dotenv').config()
 
 // green('node env=', process.env.NODE_ENV)
@@ -23,6 +24,7 @@ app.use(morgan('dev'))
 app.use('/cities-lookup', citiesLookup)
 app.use('/convert-zip', convertZipToString)
 app.use('/distinct-cities', distinctCities)
+app.use('/update-city-data', updateCityData)
 
 app.get('/', (req, res) => {
   redf('Invalid endpoint!')

@@ -8,18 +8,18 @@ __note:__
 __- you need to add the field names at the top of the file__
 __- some fields need to be deleted before import. You will know them because they are mostly blank. See section on readme from download below for list of original fields__
 ```js
- $ mongoimport --db EventsDev --collection cities --type csv --file US.txt --ignoreBlanks --headerline
+  $ mongoimport --db EventsDev --collection cities --type csv --file us.csv --ignoreBlanks --headerline
 ```
 
 **fields**
 
 - countryCode
-- postalCode
+- postalCodee
 - cityName
 - stateName
 - stateCode
-- county
-- unknown1
+- countyName
+- countyCode
 - latitude
 - longitude
 - accuracy
@@ -33,7 +33,7 @@ US	99571	Cold Bay	Alaska	AK	Aleutians East	13	55.1858	-162.7211	1
 
 Readme for GeoNames Postal Code files :
 
-allCountries.zip: all countries, for the UK only the outwards codes, the UK total codes are in GB_full.csv.zip 
+allCountries.zip: all countries, for the UK only the outwards codes, the UK total codes are in GB_full.csv.zip
 GB_full.csv.zip the full codes for the UK, ca 1.7 mio rows
 <iso countrycode>: country specific subset also included in allCountries.zip
 This work is licensed under a Creative Commons Attribution 3.0 License.
@@ -46,9 +46,9 @@ This readme describes the GeoNames Postal Code dataset.
 The main GeoNames gazetteer data extract is here: http://download.geonames.org/export/dump/
 
 
-For many countries lat/lng are determined with an algorithm that searches the place names in th main geonames database 
-using administrative divisions and numerical vicinity of the postal codes as factors in the disambiguation of place names. 
-For postal codes and place name for which no corresponding toponym in the main geonames database could be found an average 
+For many countries lat/lng are determined with an algorithm that searches the place names in th main geonames database
+using administrative divisions and numerical vicinity of the postal codes as factors in the disambiguation of place names.
+For postal codes and place name for which no corresponding toponym in the main geonames database could be found an average
 lat/lng of 'neighbouring' postal codes is calculated.
 Please let us know if you find any errors in the data set. Thanks
 

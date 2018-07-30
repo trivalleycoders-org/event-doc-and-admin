@@ -14,8 +14,8 @@ router.get('/', async (req, res) => {
   try {
     const client = await MongoClient.connect(url, { useNewUrlParser: true })
     const db = await client.db(database)
-    
-    const ret = await db.collection('cities').find({}).forEach(x => {
+
+    const ret = await db.collection('cities').find({state: 'AZ'}).forEach(x => {
       db.collection(collection).update(
         { _id: x._id },
         { $set: { postalCode: x.postalCode.toString() } }
@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
   catch (e) {
     red('convertZipToString', e)
   }
-  
+
 })
 
 export default router
