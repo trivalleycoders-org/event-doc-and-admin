@@ -10,29 +10,6 @@ const database = 'EventsDev'
 const collection = 'cities'
 const url = 'mongodb://localhost:27017'
 
-router.get('/', async (req, res) => {
-  let updated = 0
-  try {
-    const client = await MongoClient.connect(url, { useNewUrlParser: true })
-    const db = await client.db(database)
-
-    const ret = await db.collection('cities').find({state: 'AZ'}).forEach(x => {
-      db.collection(collection).update(
-        { _id: x._id },
-        { $set: { postalCode: x.postalCode.toString() } }
-      )
-      updated++
-      console.log('updated', updated)
-    })
-    res.send(`${updated} records updated`)
-  }
-  catch (e) {
-    red('convertZipToString', e)
-  }
-
-})
-
-
 const padLeft = (str, num) => {
   let strNew
   typeof str === 'number'
@@ -43,7 +20,11 @@ const padLeft = (str, num) => {
 }
 
 const hasCountyCode = has('countyCode')
-router.get('/get-test', async (req, res) => {
+
+/*
+    1. Cannot use postalCode as _id because postal codes are not unique
+*/
+router.get('/', async (req, res) => {
   let updated = 0
   let retArr = []
   try {
