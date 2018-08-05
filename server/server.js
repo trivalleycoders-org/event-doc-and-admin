@@ -8,6 +8,7 @@ import citiesLookup from '../routes/citiesLookup'
 import distinctCities from '../routes/distinceCities'
 import convertZipToString from '../routes/convertZipToString'
 import updateCityData from '../routes/update-city-data'
+import findOneAndUpdate from '../routes/findOneAndUpdate'
 require('dotenv').config()
 
 // green('node env=', process.env.NODE_ENV)
@@ -25,7 +26,7 @@ app.use('/cities-lookup', citiesLookup)
 app.use('/convert-zip', convertZipToString)
 app.use('/distinct-cities', distinctCities)
 app.use('/update-city-data', updateCityData)
-
+app.use('/findoneandupdate', findOneAndUpdate)
 app.get('/', (req, res) => {
   redf('Invalid endpoint!')
   res.send('Invalid endpoint!')
