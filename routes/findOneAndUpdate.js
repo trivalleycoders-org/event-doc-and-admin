@@ -1,25 +1,7 @@
 import express from 'express'
 import { red, yellow, redf } from '../logger'
-
+import { findOneAndUpdate } from '../db'
 const router = express.Router()
-const MongoClient = require('mongodb').MongoClient
-const database = () => 'EventsTest'
-const url = () => 'mongodb://localhost:27017'
-import { ObjectID } from  'mongodb'
-
-export const isValidObjectID = (id) => {
-  return ObjectID.isValid(id)
-}
-
-export const objectIdFromHexString = (hexId) => {
-  if (isValidObjectID(hexId)) {
-    return ObjectID.createFromHexString(hexId)
-  } else {
-    throw `Invalid objectId: ${hexId}`
-  }
-}
-
-
 
 const eventBefore = {
   _id: '5b673573d63a2d4c54bb7351',
@@ -55,31 +37,10 @@ const eventAfter = {
   venueName: 'Dublin Concert Hall',
 }
 
-
-const findOneAndUpdate = async ( collection, filter, returnOriginal = false ) => {
-  try {
-    const id = '5b673573d63a2d4c54bb7351'
-    const objId = objectIdFromHexString(id)
-
-    const client = await MongoClient.connect(url(), { useNewUrlParser: true })
-    const db = await client.db(database())
-    const ret = await db.collection(collection).findOneAndUpdate(
-      { _id: objId},
-      // { organization: 'BRIIA'},
-      { $set: filter },
-      { returnOriginal: returnOriginal }
-    )
-    yellow('dbFunctions.findOneAndUpdate: ret', ret)
-    return ret
-  }
-  catch (e) {
-    redf('ERROR: dbFunctions.findOneAndUpdate', e)
-  }
-}
-
 router.get('/', async (req, res) => {
-  const filter = { organization: 'changed-org-7' }
-  const ret = await findOneAndUpdate('events', filter)
+  const id = '5b673573d63a2d4c54bb7351'
+  const filter = { organization: 'changed-org-8' }
+  const ret = await findOneAndUpdate('events', id, filter)
   res.send(JSON.stringify(ret))
 })
 
