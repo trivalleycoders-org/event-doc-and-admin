@@ -31,6 +31,14 @@ const postalData = await findById(
 ```
 Which would return the fields with '1' and not the fields with '0'.
 
+## Return Values
+All methods which return documents have the return format of
+```js
+{ data: [], meta: {}}
+```
+Currently the meta field is not used
+__The only method that does not return the above format is <code>dropCollection()</code> which returns true or an error.
+
 ## Here is a list of all current dbFunctions
 ```js
 const dropCollection = async (collection)
