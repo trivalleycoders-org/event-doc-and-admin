@@ -36,8 +36,9 @@ All methods which return documents have the return format of
 ```js
 { data: [], meta: {}}
 ```
-Currently the meta field is not used
-__The only method that does not return the above format is <code>dropCollection()</code> which returns true or an error.
+- data is always an array even if only 1 document is returned
+- Currently the meta field is not used
+- __The only method that does not return the above format is <code>dropCollection()</code> which returns true or an error.
 
 ## Here is a list of all current dbFunctions
 ```js
