@@ -33,8 +33,6 @@ Which would return the fields with '1' and not the fields with '0'.
 
 ## Here is a list of all current dbFunctions
 ```js
-const insertOne = async (collection, data)
-
 const dropCollection = async (collection)
 
 const find = async (collection, query, project = {})
@@ -44,6 +42,10 @@ const findById = async (collection, id, project = {})
 const findOneAndDelete = async (collection, id)
 
 const findOneAndUpdate = async ( collection, id, filter, returnOriginal = false )
+
+const insertOne = async (collection, data)
+
+const insertMany = async (collection, data)
 ```
 
 ### More to come!
