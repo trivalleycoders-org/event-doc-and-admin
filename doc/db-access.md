@@ -1,6 +1,8 @@
 #DB Access & Methods
 
-While the Mongoose infrastructure is still availble it is not being used or loaded. Data access is now done via projectRoot/db.
+While the Mongoose infrastructure is still availble it is not being used or loaded. Data access is being done via projectRoot/db which uses the native MongoDB driver.
+
+We can go back to Mongoose if you want but I started to find cases where it was easier to go around it and I have yet to find any value in Mongoose. I was debating that with Kevin today and he felt I was probably wrong but I'm getting more done this way :).
 
 All db access methods are in /db/dbFunctions.js. You can use them like this:
 
