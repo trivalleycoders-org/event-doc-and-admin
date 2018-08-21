@@ -40,7 +40,7 @@ All methods which return documents have the return format of
 - Currently the meta field is not used
 - __The only method that does not return the above format is <code>dropCollection()</code> which returns true or an error.
 
-## Here is a list of all current dbFunctions
+## List of Functions
 ```js
 const dropCollection = async (collection)
 
@@ -83,3 +83,146 @@ const insertMany = async (collection, data)
 4. **_id** values can be sent as a string (e.g., '5b5f6f51222be42bb919280e') or ObjectId
 5. Validity of _id will be checked for you
 6. You likely want to async/await all functions
+
+## Examples
+
+### find()
+```js
+Signature
+const ret = async (collection, query, project = {})
+
+Example
+const ret = await db.find('people', {})
+// returns
+{ data:
+  [
+    { _id: 5b707e92425d1a4a95ff5ad3, first: 'Abe', last: 'Abrahms' },
+    { _id: 5b707e92425d1a4a95ff5ad4, first: 'Bob', last: 'Baker' },
+    { _id: 5b707e92425d1a4a95ff5ad5, first: 'Charlie', last: 'Clark' },
+    { _id: 5b707e92425d1a4a95ff5ad6, first: 'Don', last: 'Donnelly' }
+  ],
+  meta: {}
+}
+```
+
+### findById()
+```js
+Signature
+const ret = async (collection, id, project = {})
+
+Example
+export const people = [
+  {
+    first: 'Abe',
+    last: 'Abrahms',
+  },
+  {
+    first: 'Bob',
+    last: 'Baker',
+  }
+]
+const ret = await insertOne('people', people[0])
+// returns
+{
+  data:
+    [
+      { first: 'Abe', last: 'Abrahms', _id: 5b707fb7e7d33c4c3fc04741 }
+    ],
+  meta: { n: 1 }
+}
+
+
+```
+
+### findOneAndDelete()
+```js
+Signature
+const ret = async (collection, id)
+
+Example
+const ret = await insertMany('people', people)
+// return
+{
+  data:
+    [
+      { _id: 5b70813e9394914e7e88f814, first: 'Abe', last: 'Abrahms' }
+    ],
+  meta: {}
+}
+```
+
+### findOneAndUpdate()
+```js
+Signature
+const ret = async ( collection, id, filter, returnOriginal = false )
+
+Example
+const newData1 = {first: 'Jed'}
+const ret = await findOneAndUpdate('people', id, newData1)
+// returns
+{
+  data:
+    [
+      { _id: 5b7081badd8aee4f4fb2ef93, first: 'Abe', last: 'Abrahms' }
+    ],
+  meta: {}
+}
+```
+
+### insertOne()
+```js
+Signature
+const ret = async (collection, data)
+
+Example
+export const people = [
+  {
+    first: 'Abe',
+    last: 'Abrahms',
+  },
+  {
+    first: 'Bob',
+    last: 'Baker',
+  }
+]
+const onePerson = people[0]
+const insert = await insertOne('people', onePerson)
+// return
+{
+  data:
+    [
+     { _id: 5b70822c2b3423502ba92d9e, first: 'Abe', last: 'Abrahms' }
+    ],
+  meta: {}
+}
+```
+
+### insertMany()
+```js
+Signature
+const ret = async (collection, data)
+
+Example
+export const people = [
+  {
+    first: 'Abe',
+    last: 'Abrahms',
+  },
+  {
+    first: 'Bob',
+    last: 'Baker',
+  }
+]
+const insert = await insertMany('people', people)
+
+// returns
+{
+  data:
+    [
+      { first: 'Abe', last: 'Abrahms', _id: 5b7082749da90350c3622d54 },
+      { first: 'Bob', last: 'Baker', _id: 5b7082749da90350c3622d55 },
+    ],
+  meta: { n: 1 }
+}
+
+```

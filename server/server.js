@@ -11,6 +11,7 @@ import convertZipToString from '../routes/convertZipToString'
 import updateCityData from '../routes/update-city-data'
 import findOneAndUpdate from '../routes/findOneAndUpdate'
 import insertOneTest from '../routes/insertOneTest'
+import allEventsFromDev from '../routes/getAllEventsFromDev'
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').load()
@@ -27,6 +28,7 @@ app.use(morgan('dev'))
 
 // routes
 // app.use('/cities', cities)
+app.use('/all-events-from-dev', allEventsFromDev)
 app.use('/cities-lookup', citiesLookup)
 app.use('/convert-zip', convertZipToString)
 app.use('/distinct-cities', distinctCities)

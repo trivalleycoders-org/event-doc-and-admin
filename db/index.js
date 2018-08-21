@@ -1,3 +1,19 @@
-import { findOneAndUpdate, insertOne  } from './dbFunctions'
+import {
+  dropCollection,
+  findOneAndDelete,
+  findOneAndUpdate,
+  find,
+  findById,
+  insertOne,
+  insertMany
+} from './dbFunctions'
 
-export { findOneAndUpdate, insertOne }
+export {
+  dropCollection,
+  findOneAndDelete,
+  findOneAndUpdate,
+  find,
+  findById,
+  insertOne,
+  insertMany
+}
