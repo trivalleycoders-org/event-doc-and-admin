@@ -4,39 +4,27 @@ SCRATCH START
 
 
 > component events should start with 'handle'
-> actions, events & selectors follow the convention
-	<name>-<actions|events|selectors>.js
-	example: event-actions.js
-	* name will be singular
 > constants that that are closely associated with a given module are declared in that module
-
 > single quotes
 > no semicolons
 > trailing commas for objects
 > use arrow functions unless have a reason for doing otherwise
 
-
-# actions
-## constants
-**non-thunks**
-- are prefixed with 'key'
-- value starts with the word 'actionKey'
-**thunks**
-- are prefixed with 'requestKey'
-- value starts with 'requestKey'
-
-## action names
-- thunks start with the prefix 'request'
-- non-thunks do not have a prefix
-- non-thunks that are the primary action called by a thunk have the same name as the thunk without the word 'request' for example:
-thunk: requestCreateEvent
-non-thunk: createEvent
+## Action/Action Creator Names
+<subject><very>[Request][Key]
+E.g.,
+- request action: userLoginRequest
+- request action key: userLoginRequestKey
+- action: userLogin
+- action key: userLoginKey
+- Actions that are the primary action called by a request success have the same name as the thunk without the 'request' postfix
 
 # selectors
 - generally start with the prefix 'get'
+- must explicitly return a default value
 
 
-# imports
+# imports - not being followed
 Imports are organized as follows (in order)
 - React imports ('react' * 'prop-types')
 - Redux, Recompose, react-redux
@@ -54,4 +42,6 @@ under the comment /* Dev */
 
 # Database
 > database names use camelCase just like JavaScript variables & functions
+
+
 
