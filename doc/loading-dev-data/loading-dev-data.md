@@ -19,8 +19,10 @@ $ sudo service mongod start
 ```
 
 ## Launch Compass
-When you launch Compass you screen should look like this
-![launch compass](launch-compass.png)
+When you launch Compass the connections settings should be as below. Adjust them as needed and then click CONNECT.
+
+<img src='https://github.com/trivalleycoders-org/event-doc-and-admin/blob/master/doc/loading-dev-data/connect.png?raw=true' width="700" />
+
 
 ## Setting up the database
 
@@ -29,6 +31,7 @@ When you launch Compass you screen should look like this
 
 At the bottom of the left-hand nav, click the + sign
 ![new database](new-database.png)
+<img src='https://github.com/trivalleycoders-org/event-doc-and-admin/blob/master/doc/loading-dev-data/new-db.png?raw=true' />
 
 Fill-in the form as shown and press CREATE DATABASE
 ![create-db-form](/create-db-form.png)
