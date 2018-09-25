@@ -7,9 +7,9 @@ The easiest way to load data into the project is using MongoDB Compass. If you d
 
 
 ## Get the collections
-- Get the collections as JSON files
 
-Clone our [document-and-admin project](https://github.com/trivalleycoders-org/event-doc-and-admin)
+- Get the collections as JSON files
+- Clone the [document-and-admin project](https://github.com/trivalleycoders-org/event-doc-and-admin)
 
 The collection data is in /data-collections.
 
@@ -68,9 +68,12 @@ Your screen should now look like this
 
 <img src="https://github.com/trivalleycoders-org/event-doc-and-admin/blob/master/doc/loading-dev-data/import-events.png?raw=true" />
 
-- Repeat the above process for postalCodes using the file /data-collections/postalCodes.json and for users with the file /data-collections/users.json
+- Repeat the above process for postalCodes using the file /data-collections/postalCodes.json
+- Repeat the above process for users with the file /data-collections/users.json
 
 > The postalCodes file is 41,000+ records and may take a while to import.
+
+** Your done!**
 
 
 
