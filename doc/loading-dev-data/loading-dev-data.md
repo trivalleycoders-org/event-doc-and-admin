@@ -30,29 +30,36 @@ When you launch Compass the connections settings should be as below. Adjust them
 > You must create a database named 'EventsDev'. However, the screenshots will say EventsDev2 since I already have an EventsDev db.
 
 At the bottom of the left-hand nav, click the + sign
-![new database](new-database.png)
+
 <img src='https://github.com/trivalleycoders-org/event-doc-and-admin/blob/master/doc/loading-dev-data/new-db.png?raw=true' />
 
 Fill-in the form as shown and press CREATE DATABASE
-![create-db-form](/create-db-form.png)
+
+<img src='https://github.com/trivalleycoders-org/event-doc-and-admin/blob/master/doc/loading-dev-data/create-db-form.png?raw=true' />
 
 Click on the new database in the left-hand nav to open it. You screen should look like this
-![new-db](/new-db.png)
+
+**Remember, you will click on 'EventsDev', not 'EventsDev2'**
+
+<img src="https://github.com/trivalleycoders-org/event-doc-and-admin/blob/master/doc/loading-dev-data/click-on-new-db.png?raw=true" />
 
 Click the green CREATE COLLECTION button and fill in the form as shown, then click CREATE COLLECTION
-![users-collection](/users-collection.png)
+
 
 Repeat the above step except this time the collection name is 'postalCodes'
 
 Your screen should now look like this
-![users-collection](/users-collection.png)
+
+
+<img src='https://github.com/trivalleycoders-org/event-doc-and-admin/blob/master/doc/loading-dev-data/users-collection.png?raw=true' />
 
 ## Loading data
 Click on the events collection
 From the top menu, select Collection > Import data
 Use the Browse button to find the file /data-collections/events-collection.json
 Make sure the JSON button is selected and then click IMPORT
-![import-events](/import-events.png)
+
+<img src="https://github.com/trivalleycoders-org/event-doc-and-admin/blob/master/doc/loading-dev-data/import-events.png?raw=true" />
 
 Repeat the above process for postalCodes using the file /data-collections/postalCodes.json and for users with the file /data-collections/users.json
 
