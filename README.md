@@ -2,6 +2,9 @@
 
 ## status
 
+## mcc's changes
+I just amde a change... just for fun.  :)
+
 [![Build Status](https://travis-ci.org/trivalleycoders-org/rotary-server.svg?branch=master)](https://travis-ci.org/trivalleycoders-org/rotary-server)
 
 ## Notes
